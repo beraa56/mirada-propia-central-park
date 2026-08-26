@@ -174,6 +174,7 @@ a{color:inherit; text-decoration:none;}
 }
 
 /* ---------- HERO ---------- */
+.hero-band{position:relative;}
 .hero-band .ph{
   border-radius:0;
   position:relative;
@@ -913,17 +914,22 @@ footer{
 .whatsapp-float svg{width:28px; height:28px; fill:#fff;}
 
 @media (max-width:860px){
-  .hero-band .ph{height:auto; min-height:700px; max-height:none;}
-  .hero-overlay{position:absolute; align-items:flex-end; padding:0 0 28px;}
+  .hero-band .ph{height:auto; min-height:440px; max-height:none;}
+  .hero-overlay{
+    position:static;
+    display:block;
+    background:#1c130d;
+    padding:28px 0 36px;
+  }
   .hero-overlay .wrap{padding-left:22px; padding-right:22px;}
   .hero-overlay-panel{max-width:100%;}
   .hero-overlay-panel .eyebrow{font-size:12px;}
   .hero-rule{margin:8px 0 6px;}
-  .hero-overlay-panel h1{font-size:26px;}
-  .hero-tagline-box{padding:14px 18px; margin:4px -18px 0;}
+  .hero-overlay-panel h1{font-size:28px;}
+  .hero-tagline-box{background:none; padding:0; margin:14px 0 0;}
   .hero-tag{font-size:11px;}
-  .hero-sub{font-size:13.5px; margin-top:4px;}
-  .hero-stats{gap:8px; margin:16px 0 20px;}
+  .hero-sub{font-size:14px; margin-top:4px;}
+  .hero-stats{gap:8px; margin:18px 0 22px;}
   .ho-stat{padding:6px 11px;}
   .ho-stat span{font-size:10px;}
   .hero-overlay-panel .btn{padding:14px 28px; font-size:12px;}
