@@ -922,6 +922,8 @@ footer{
   .transform-grid{grid-template-columns:1fr; gap:14px; max-width:420px;}
   .transform-arrow{transform:rotate(90deg); text-align:center;}
   .transform-highlight{flex-direction:column; text-align:center; gap:12px;}
+  .bio-split{grid-template-columns:1fr; gap:28px;}
+  .bio-split .ph{aspect-ratio:4/3; max-width:320px; margin:0 auto;}
   .price-grid{grid-template-columns:1fr;}
   .wrap{padding:0 22px;}
   .section{padding:64px 0;}
