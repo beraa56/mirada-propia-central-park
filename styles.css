@@ -913,10 +913,20 @@ footer{
 .whatsapp-float svg{width:28px; height:28px; fill:#fff;}
 
 @media (max-width:860px){
-  .hero-band .ph{height:auto; min-height:640px; max-height:none;}
-  .hero-overlay{position:absolute; align-items:flex-end; padding:0 0 32px;}
+  .hero-band .ph{height:auto; min-height:700px; max-height:none;}
+  .hero-overlay{position:absolute; align-items:flex-end; padding:0 0 28px;}
   .hero-overlay .wrap{padding-left:22px; padding-right:22px;}
   .hero-overlay-panel{max-width:100%;}
+  .hero-overlay-panel .eyebrow{font-size:12px;}
+  .hero-rule{margin:8px 0 6px;}
+  .hero-overlay-panel h1{font-size:26px;}
+  .hero-tagline-box{padding:14px 18px; margin:4px -18px 0;}
+  .hero-tag{font-size:11px;}
+  .hero-sub{font-size:13.5px; margin-top:4px;}
+  .hero-stats{gap:8px; margin:16px 0 20px;}
+  .ho-stat{padding:6px 11px;}
+  .ho-stat span{font-size:10px;}
+  .hero-overlay-panel .btn{padding:14px 28px; font-size:12px;}
   .how-intro-grid{grid-template-columns:1fr; gap:32px;}
   .how-photo .ph{min-height:220px;}
   .steps-grid{grid-template-columns:1fr 1fr; gap:32px 20px;}
@@ -928,7 +938,7 @@ footer{
   .transform-arrow{transform:rotate(90deg); text-align:center;}
   .transform-highlight{flex-direction:column; text-align:center; gap:12px;}
   .bio-split{grid-template-columns:1fr; gap:28px;}
-  .bio-split .ph{aspect-ratio:4/3; max-width:320px; margin:0 auto;}
+  .bio-split .ph{max-width:280px; margin:0 auto;}
   .price-grid{grid-template-columns:1fr;}
   .wrap{padding:0 22px;}
   .section{padding:64px 0;}
