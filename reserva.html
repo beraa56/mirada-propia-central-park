@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reserva tu cupo — Mirada Propia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Parisienne&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Reserva tu cupo para el taller Mirada Propia en Central Park — 3 de octubre 2026. Paga con Stripe, PayPal o Zelle.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Reserva tu cupo — Mirada Propia">
+<meta property="og:description" content="Taller de retrato Fine Art en Central Park, 3 de octubre 2026. Cupos limitados — 10 a 12 fotógrafos.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="brand">Mirada Propia</div>
+    <a href="index.html" class="back">← Volver a la página principal</a>
+  </div>
+</div>
+
+<section class="checkout">
+  <div class="wrap">
+    <div class="checkout-head">
+      <div class="kicker">Reserva tu cupo</div>
+      <h1>Confirma tu lugar en Central Park</h1>
+      <p>Elige tu paquete y paga con el método que prefieras. Cupos limitados — 10 a 12 fotógrafos.</p>
+      <div class="checkout-facts">
+        <span>Central Park, NY</span>
+        <span>3 horas</span>
+        <span>3 oct 2026, 2:00 PM</span>
+      </div>
+    </div>
+
+    <div class="checkout-grid">
+      <!-- ============ PACKAGE SELECTOR ============ -->
+      <div class="package-card">
+        <h2>Elige tu paquete</h2>
+
+        <label class="package-option">
+          <input type="radio" name="package" value="350" id="pkg-early" checked>
+          <div class="opt-label">
+            <b>Early bird</b>
+            <span>Hasta el 20 de septiembre</span>
+          </div>
+          <div class="opt-price">USD 350</div>
+        </label>
+
+        <label class="package-option">
+          <input type="radio" name="package" value="435" id="pkg-regular">
+          <div class="opt-label">
+            <b>Precio regular</b>
+            <span>Después del 20 de septiembre</span>
+          </div>
+          <div class="opt-price">USD 435</div>
+        </label>
+
+        <label class="package-option addon-option">
+          <input type="checkbox" id="pkg-addon" value="150">
+          <div class="opt-label">
+            <b>+ Edición Fine Art (Zoom)</b>
+            <span>Llevamos tus fotos del RAW al acabado final, mismo criterio que ves en mi trabajo.</span>
+          </div>
+          <div class="opt-price">+ USD 150</div>
+        </label>
+
+        <div class="total-row">
+          <span class="label">Total a pagar</span>
+          <span class="num">USD <span id="total-amount">350</span></span>
+        </div>
+      </div>
+
+      <!-- ============ PAYMENT METHODS ============ -->
+      <div class="pay-methods">
+        <div class="pay-card">
+          <h3>Pagar con tarjeta <span class="pay-badge">Stripe</span></h3>
+          <p>Pago seguro con tarjeta de crédito o débito, procesado por Stripe.</p>
+          <a href="#" id="stripe-btn" class="btn" target="_blank" rel="noopener">Pagar con Stripe</a>
+          <div class="placeholder-note">Pendiente: crea tus Payment Links en el Dashboard de Stripe (uno por cada monto — 350, 435, 500 y 585) y pégalos en la constante <code>CONFIG.stripeLinks</code> al final de este archivo.</div>
+        </div>
+
+        <div class="pay-card">
+          <h3>Pagar con PayPal <span class="pay-badge">PayPal</span></h3>
+          <p>Transferencia directa a tu cuenta de PayPal, con el monto ya cargado.</p>
+          <a href="#" id="paypal-btn" class="btn" target="_blank" rel="noopener">Pagar con PayPal</a>
+          <div class="placeholder-note">Pendiente: reemplaza <code>TU_USUARIO_PAYPAL</code> en <code>CONFIG.paypalUser</code> por tu usuario real de PayPal.Me (paypal.me/tu-usuario).</div>
+        </div>
+
+        <div class="pay-card">
+          <h3>Pagar con Zelle <span class="pay-badge">Zelle</span></h3>
+          <p>Zelle no genera links de pago — transfiere el monto exacto desde tu app bancaria y avísanos.</p>
+          <div class="zelle-box">
+            <b>Enviar a:</b>
+            <span id="zelle-contact">PENDIENTE_EMAIL_O_TELEFONO_ZELLE</span><br>
+            <b>Monto:</b> USD <span id="zelle-amount">350</span>
+          </div>
+          <a href="#" id="zelle-confirm-btn" class="btn ghost">Ya pagué, avísale a Bernardita</a>
+          <div class="placeholder-note">Pendiente: reemplaza <code>CONFIG.zelle.contact</code> (el email o teléfono asociado a tu Zelle) y <code>CONFIG.notifyEmail</code> (adónde te llega el aviso de "ya pagué") al final de este archivo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Mirada Propia™ — Bernardita Aguirre · Embajadora Sony Alpha
+</footer>
+
+<script>
+  // ======================================================================
+  // CONFIGURACIÓN — reemplaza estos valores antes de publicar la página.
+  // ======================================================================
+  const CONFIG = {
+    // Un Payment Link de Stripe por cada monto posible (Dashboard → Payment Links).
+    stripeLinks: {
+      350: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_EARLYBIRD",
+      435: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_REGULAR",
+      500: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_EARLYBIRD_MAS_EDICION",
+      585: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_REGULAR_MAS_EDICION"
+    },
+    // Tu usuario de PayPal.Me (sin la URL completa, solo el usuario).
+    paypalUser: "TU_USUARIO_PAYPAL",
+    zelle: {
+      // Email o teléfono asociado a tu cuenta de Zelle.
+      contact: "PENDIENTE_EMAIL_O_TELEFONO_ZELLE"
+    },
+    // A este correo llega el aviso cuando alguien confirma un pago por Zelle.
+    notifyEmail: "PENDIENTE_TU_EMAIL@ejemplo.com"
+  };
+  // ======================================================================
+
+  const EARLY_BIRD_CUTOFF = new Date("2026-09-20T23:59:59");
+
+  const pkgEarly = document.getElementById("pkg-early");
+  const pkgRegular = document.getElementById("pkg-regular");
+  const pkgAddon = document.getElementById("pkg-addon");
+  const totalEl = document.getElementById("total-amount");
+  const zelleAmountEl = document.getElementById("zelle-amount");
+  const zelleContactEl = document.getElementById("zelle-contact");
+  const stripeBtn = document.getElementById("stripe-btn");
+  const paypalBtn = document.getElementById("paypal-btn");
+  const zelleConfirmBtn = document.getElementById("zelle-confirm-btn");
+
+  function currentPackagePrice() {
+    return pkgRegular.checked ? 435 : 350;
+  }
+
+  function updateTotal() {
+    const total = currentPackagePrice() + (pkgAddon.checked ? 150 : 0);
+
+    totalEl.textContent = total;
+    zelleAmountEl.textContent = total;
+    zelleContactEl.textContent = CONFIG.zelle.contact;
+
+    const stripeLink = CONFIG.stripeLinks[total] || "#";
+    stripeBtn.href = stripeLink;
+
+    paypalBtn.href = "https://paypal.me/" + CONFIG.paypalUser + "/" + total;
+
+    const subject = encodeURIComponent("Pago por Zelle — Mirada Propia");
+    const body = encodeURIComponent(
+      "Hola Bernardita,\n\nAcabo de transferir USD " + total + " por Zelle para reservar mi cupo en el taller del 3 de octubre.\n\nNombre: \n"
+    );
+    zelleConfirmBtn.href = "mailto:" + CONFIG.notifyEmail + "?subject=" + subject + "&body=" + body;
+  }
+
+  function warnIfPlaceholder(e, href, label) {
+    if (!href || href === "#" || href.indexOf("PEGA_AQUI") !== -1 || href.indexOf("TU_USUARIO") !== -1 || href.indexOf("PENDIENTE") !== -1) {
+      e.preventDefault();
+      alert("Falta configurar " + label + " en reserva.html antes de publicar esta página (ver CONFIG al final del archivo).");
+    }
+  }
+
+  stripeBtn.addEventListener("click", (e) => warnIfPlaceholder(e, stripeBtn.getAttribute("href"), "el link de Stripe"));
+  paypalBtn.addEventListener("click", (e) => warnIfPlaceholder(e, paypalBtn.getAttribute("href"), "tu usuario de PayPal"));
+  zelleConfirmBtn.addEventListener("click", (e) => warnIfPlaceholder(e, zelleConfirmBtn.getAttribute("href"), "el email de aviso de Zelle"));
+
+  [pkgEarly, pkgRegular, pkgAddon].forEach((el) => el.addEventListener("change", updateTotal));
+
+  // Selección por defecto según la fecha: antes del corte, early bird; después, regular.
+  if (new Date() > EARLY_BIRD_CUTOFF) {
+    pkgRegular.checked = true;
+  }
+
+  // Si se llega desde index.html con ?addon=1, se pre-marca la edición Fine Art.
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("addon") === "1") {
+    pkgAddon.checked = true;
+  }
+
+  updateTotal();
+</script>
+
+</body>
+</html>
