@@ -115,10 +115,11 @@
           <div class="zelle-box">
             <b>Enviar a:</b>
             <span id="zelle-contact">PENDIENTE_EMAIL_O_TELEFONO_ZELLE</span><br>
+            <b>A nombre de:</b>
+            <span id="zelle-account-name">PENDIENTE</span><br>
             <b>Monto:</b> USD <span id="zelle-amount">350</span>
           </div>
           <a href="#" id="zelle-confirm-btn" class="btn ghost">Ya pagué, avísale a Bernardita</a>
-          <div class="placeholder-note">Pendiente: reemplaza <code>CONFIG.zelle.contact</code> (el email o teléfono asociado a tu Zelle) y <code>CONFIG.notifyEmail</code> (adónde te llega el aviso de "ya pagué") al final de este archivo.</div>
         </div>
       </div>
     </div>
@@ -141,20 +142,22 @@
     // Un Payment Link de Stripe por cada monto posible (Dashboard → Payment Links).
     // 200 = solo el depósito de reserva (mismo monto sin importar el paquete elegido).
     stripeLinks: {
-      200: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_DEPOSITO",
-      350: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_EARLYBIRD",
-      435: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_REGULAR",
-      500: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_EARLYBIRD_MAS_EDICION",
-      585: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_REGULAR_MAS_EDICION"
+      200: "https://buy.stripe.com/9B66oGfSM8wvebBfAY67S0a",
+      350: "https://buy.stripe.com/00wcN44a45kj6J9coM67S09",
+      435: "https://buy.stripe.com/00w00ibCw7sr7Nd4Wk67S0b",
+      500: "https://buy.stripe.com/3cI4gy21W8wv5F50G467S0c",
+      585: "https://buy.stripe.com/bJeaEWeOI3cb2sTewU67S0d"
     },
     // Tu usuario de PayPal.Me (sin la URL completa, solo el usuario).
-    paypalUser: "TU_USUARIO_PAYPAL",
+    paypalUser: "bernarditaaguirre",
     zelle: {
-      // Email o teléfono asociado a tu cuenta de Zelle.
-      contact: "PENDIENTE_EMAIL_O_TELEFONO_ZELLE"
+      // Email asociado a tu cuenta de Zelle.
+      contact: "hola@bernarditaaguirre.com",
+      // Nombre a nombre de quien está registrada la cuenta Zelle (para que el cliente lo confirme antes de transferir).
+      accountName: "Art & Photo LLC"
     },
     // A este correo llega el aviso cuando alguien confirma un pago por Zelle.
-    notifyEmail: "PENDIENTE_TU_EMAIL@ejemplo.com",
+    notifyEmail: "hola@bernarditaaguirre.com",
     // Tu número de WhatsApp con código de país, solo dígitos.
     whatsappNumber: "56992388751"
   };
@@ -174,6 +177,7 @@
   const balanceAmountEl = document.getElementById("balance-amount");
   const zelleAmountEl = document.getElementById("zelle-amount");
   const zelleContactEl = document.getElementById("zelle-contact");
+  const zelleAccountNameEl = document.getElementById("zelle-account-name");
   const stripeBtn = document.getElementById("stripe-btn");
   const paypalBtn = document.getElementById("paypal-btn");
   const zelleConfirmBtn = document.getElementById("zelle-confirm-btn");
@@ -195,6 +199,7 @@
 
     zelleAmountEl.textContent = amountDue;
     zelleContactEl.textContent = CONFIG.zelle.contact;
+    zelleAccountNameEl.textContent = CONFIG.zelle.accountName;
 
     const stripeLink = CONFIG.stripeLinks[amountDue] || "#";
     stripeBtn.href = stripeLink;

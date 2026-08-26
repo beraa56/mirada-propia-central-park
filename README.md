@@ -32,29 +32,11 @@ Ya cargados y funcionando:
 - WhatsApp: +56 9 9238 8751 (botón flotante en ambas páginas y en `reserva.html`).
 - Política de cancelación (en `reserva.html`, junto al selector de pago): la reserva no es
   reembolsable, pero se puede transferir a otro alumno que el cliente proponga.
+- Pagos: los 5 Payment Links de Stripe (200/350/435/500/585), el usuario de PayPal.Me
+  (`bernarditaaguirre`) y el Zelle (`hola@bernarditaaguirre.com`, a nombre de Art & Photo LLC)
+  ya están cargados en `CONFIG` dentro de `reserva.html` — los botones de pago funcionan.
 
-## ⚠️ Pendiente antes de publicar (obligatorio)
-
-`reserva.html` tiene un bloque `CONFIG` al final del archivo (dentro del `<script>`) con
-placeholders que **hay que reemplazar** antes de mandar el link a clientes, o los botones
-de pago no van a funcionar:
-
-- `CONFIG.stripeLinks` — necesitas crear 5 Payment Links en tu Dashboard de Stripe
-  (Stripe → Payment Links → Crear), uno por cada monto posible: **200 (depósito), 350, 435,
-  500 y 585** (los dos últimos son con la edición Fine Art incluida). Pega cada URL en su campo.
-- `CONFIG.paypalUser` — tu usuario de PayPal.Me (si no lo tienes, se crea gratis en
-  [paypal.me](https://www.paypal.me)). El monto se agrega automáticamente al link según
-  el paquete y modo de pago que elija el cliente.
-- `CONFIG.zelle.contact` — el email o teléfono asociado a tu cuenta de Zelle (el mismo
-  que usarías para recibir una transferencia).
-- `CONFIG.notifyEmail` — el correo donde quieres recibir el aviso de "ya pagué" que manda
-  el botón de Zelle.
-
-Mientras estos campos digan "PEGA_AQUI...", "TU_USUARIO..." o "PENDIENTE...", los botones
-muestran una alerta al cliente en vez de dejarlo pagar — es intencional, para que no se
-publique por error sin configurar.
-
-## Pendiente antes de publicar (del taller)
+## Pendiente antes de publicar
 
 - ~~Confirmar permiso con Central Park Conservancy~~ — ya está resuelto. Se sacó la mención
   del permiso de la sección `.pricing` en `index.html` (ya no hacía falta).
