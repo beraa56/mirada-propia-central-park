@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reserva tu cupo — Mirada Propia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Parisienne&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <meta name="description" content="Reserva tu cupo para el taller Mirada Propia en Central Park — 3 de octubre 2026. Paga con Stripe, PayPal o Zelle.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Reserva tu cupo — Mirada Propia">
@@ -18,7 +18,7 @@
 
 <div class="page-header">
   <div class="wrap">
-    <div class="brand">Mirada Propia</div>
+    <div class="brand">Curso de Fotografía Fine Art</div>
     <a href="index.html" class="back">← Volver a la página principal</a>
   </div>
 </div>
@@ -68,9 +68,28 @@
           <div class="opt-price">+ USD 150</div>
         </label>
 
+        <div class="payment-mode">
+          <label class="pm-option">
+            <input type="radio" name="paymode" value="full" id="pm-full" checked>
+            <span>Pago completo ahora</span>
+          </label>
+          <label class="pm-option">
+            <input type="radio" name="paymode" value="deposit" id="pm-deposit">
+            <span>Reservar con depósito — USD 200</span>
+          </label>
+        </div>
+
         <div class="total-row">
-          <span class="label">Total a pagar</span>
+          <span class="label" id="total-label">Total a pagar</span>
           <span class="num">USD <span id="total-amount">350</span></span>
+        </div>
+        <div class="balance-row" id="balance-row">
+          Saldo pendiente (se paga antes del taller): <b>USD <span id="balance-amount">150</span></b>
+        </div>
+
+        <div class="cancellation-note">
+          <b>Política de cancelación</b>
+          La reserva no es reembolsable, pero puedes transferirla a otro alumno que tú propongas.
         </div>
       </div>
 
@@ -110,13 +129,19 @@
   Mirada Propia™ — Bernardita Aguirre · Embajadora Sony Alpha
 </footer>
 
+<a href="#" id="whatsapp-float" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.35.66 4.55 1.8 6.43L4 29l7.72-1.76a12.9 12.9 0 0 0 4.3.74h.01c6.62 0 12.02-5.4 12.02-12.02C28.05 8.4 22.64 3 16.02 3zm0 21.9h-.01a10.1 10.1 0 0 1-5.14-1.41l-.37-.22-3.83.87.87-3.74-.24-.38a9.98 9.98 0 0 1-1.55-5.3C5.75 9.42 10.34 4.9 16.02 4.9c2.68 0 5.2 1.05 7.09 2.94a9.9 9.9 0 0 1 2.93 7.08c0 5.6-4.6 10.98-10.02 10.98zm5.5-7.65c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+</a>
+
 <script>
   // ======================================================================
   // CONFIGURACIÓN — reemplaza estos valores antes de publicar la página.
   // ======================================================================
   const CONFIG = {
     // Un Payment Link de Stripe por cada monto posible (Dashboard → Payment Links).
+    // 200 = solo el depósito de reserva (mismo monto sin importar el paquete elegido).
     stripeLinks: {
+      200: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_DEPOSITO",
       350: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_EARLYBIRD",
       435: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_REGULAR",
       500: "PEGA_AQUI_TU_STRIPE_PAYMENT_LINK_EARLYBIRD_MAS_EDICION",
@@ -129,41 +154,58 @@
       contact: "PENDIENTE_EMAIL_O_TELEFONO_ZELLE"
     },
     // A este correo llega el aviso cuando alguien confirma un pago por Zelle.
-    notifyEmail: "PENDIENTE_TU_EMAIL@ejemplo.com"
+    notifyEmail: "PENDIENTE_TU_EMAIL@ejemplo.com",
+    // Tu número de WhatsApp con código de país, solo dígitos.
+    whatsappNumber: "56992388751"
   };
   // ======================================================================
 
+  const DEPOSIT_AMOUNT = 200;
   const EARLY_BIRD_CUTOFF = new Date("2026-09-20T23:59:59");
 
   const pkgEarly = document.getElementById("pkg-early");
   const pkgRegular = document.getElementById("pkg-regular");
   const pkgAddon = document.getElementById("pkg-addon");
+  const pmFull = document.getElementById("pm-full");
+  const pmDeposit = document.getElementById("pm-deposit");
   const totalEl = document.getElementById("total-amount");
+  const totalLabelEl = document.getElementById("total-label");
+  const balanceRow = document.getElementById("balance-row");
+  const balanceAmountEl = document.getElementById("balance-amount");
   const zelleAmountEl = document.getElementById("zelle-amount");
   const zelleContactEl = document.getElementById("zelle-contact");
   const stripeBtn = document.getElementById("stripe-btn");
   const paypalBtn = document.getElementById("paypal-btn");
   const zelleConfirmBtn = document.getElementById("zelle-confirm-btn");
+  const whatsappFloat = document.getElementById("whatsapp-float");
 
   function currentPackagePrice() {
     return pkgRegular.checked ? 435 : 350;
   }
 
   function updateTotal() {
-    const total = currentPackagePrice() + (pkgAddon.checked ? 150 : 0);
+    const packageTotal = currentPackagePrice() + (pkgAddon.checked ? 150 : 0);
+    const isDeposit = pmDeposit.checked;
+    const amountDue = isDeposit ? DEPOSIT_AMOUNT : packageTotal;
 
-    totalEl.textContent = total;
-    zelleAmountEl.textContent = total;
+    totalEl.textContent = amountDue;
+    totalLabelEl.textContent = isDeposit ? "Depósito para reservar" : "Total a pagar";
+    balanceRow.style.display = isDeposit ? "block" : "none";
+    if (isDeposit) balanceAmountEl.textContent = packageTotal - DEPOSIT_AMOUNT;
+
+    zelleAmountEl.textContent = amountDue;
     zelleContactEl.textContent = CONFIG.zelle.contact;
 
-    const stripeLink = CONFIG.stripeLinks[total] || "#";
+    const stripeLink = CONFIG.stripeLinks[amountDue] || "#";
     stripeBtn.href = stripeLink;
 
-    paypalBtn.href = "https://paypal.me/" + CONFIG.paypalUser + "/" + total;
+    paypalBtn.href = "https://paypal.me/" + CONFIG.paypalUser + "/" + amountDue;
 
-    const subject = encodeURIComponent("Pago por Zelle — Mirada Propia");
+    const subject = encodeURIComponent((isDeposit ? "Depósito" : "Pago") + " por Zelle — Mirada Propia");
     const body = encodeURIComponent(
-      "Hola Bernardita,\n\nAcabo de transferir USD " + total + " por Zelle para reservar mi cupo en el taller del 3 de octubre.\n\nNombre: \n"
+      "Hola Bernardita,\n\nAcabo de transferir USD " + amountDue + " por Zelle para " +
+      (isDeposit ? "reservar mi cupo (depósito, saldo pendiente USD " + (packageTotal - DEPOSIT_AMOUNT) + ")" : "reservar mi cupo") +
+      " en el taller del 3 de octubre.\n\nNombre: \n"
     );
     zelleConfirmBtn.href = "mailto:" + CONFIG.notifyEmail + "?subject=" + subject + "&body=" + body;
   }
@@ -178,8 +220,12 @@
   stripeBtn.addEventListener("click", (e) => warnIfPlaceholder(e, stripeBtn.getAttribute("href"), "el link de Stripe"));
   paypalBtn.addEventListener("click", (e) => warnIfPlaceholder(e, paypalBtn.getAttribute("href"), "tu usuario de PayPal"));
   zelleConfirmBtn.addEventListener("click", (e) => warnIfPlaceholder(e, zelleConfirmBtn.getAttribute("href"), "el email de aviso de Zelle"));
+  whatsappFloat.addEventListener("click", (e) => warnIfPlaceholder(e, "https://wa.me/" + CONFIG.whatsappNumber, "tu número de WhatsApp"));
 
-  [pkgEarly, pkgRegular, pkgAddon].forEach((el) => el.addEventListener("change", updateTotal));
+  const waText = encodeURIComponent("Hola Bernardita, tengo una consulta sobre el taller en Central Park.");
+  whatsappFloat.href = "https://wa.me/" + CONFIG.whatsappNumber + "?text=" + waText;
+
+  [pkgEarly, pkgRegular, pkgAddon, pmFull, pmDeposit].forEach((el) => el.addEventListener("change", updateTotal));
 
   // Selección por defecto según la fecha: antes del corte, early bird; después, regular.
   if (new Date() > EARLY_BIRD_CUTOFF) {

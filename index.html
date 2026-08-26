@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mirada Propia — Retrato Fine Art en Central Park</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Parisienne&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <meta name="description" content="Taller presencial de 3 horas en Central Park, Nueva York, para fotógrafos que ya dominan su cámara y quieren llevar su retrato a Fine Art. Cupos limitados — 3 de octubre 2026.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mirada Propia — Retrato Fine Art en Central Park">
@@ -18,51 +18,59 @@
 </head>
 <body>
 
+<!-- ============ NAV ============ -->
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="#inicio" class="nav-brand">
+      <img src="images/logo-mark-white.png" alt="Bernardita Aguirre" class="nav-logo-mark">
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#para-quien">Para quién</a></li>
+      <li><a href="#precio">Precio</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li><a href="reserva.html" class="nav-cta">Reservar</a></li>
+    </ul>
+  </div>
+</nav>
+
 <!-- ============ HERO ============ -->
-<div class="band hero-band">
+<div class="band hero-band" id="inicio">
   <div class="ph">
     <img src="images/_DSC0875-Editar-Editar_copia.jpg" alt="Familia caminando entre hojas de otoño">
-  </div>
-</div>
-
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-text">
-      <div class="eyebrow">Mirada Propia</div>
-        <h1>Retrato Fine Art<em>con personas reales</em></h1>
-        <div class="hero-rule"></div>
-        <p class="hero-sub">Diriges. Disparas. Aprendes a ver.</p>
-        <p class="lead">Tres horas en Central Park, con una familia y niños reales como modelos. <strong>Tú estás detrás de la cámara desde el primer minuto.</strong> Yo corrijo en tiempo real: luz, composición, dirección, pose y momento.</p>
-        <p class="lead">No vienes a observar cómo trabajo. <strong>Vienes a trabajar tú.</strong></p>
-        <div class="ctas">
-          <a href="reserva.html" class="btn">Reservar mi cupo</a>
-        </div>
-    </div>
-  </div>
-</section>
-
-<div class="stats">
-    <div class="wrap">
-      <div class="stats-grid">
-        <div class="stat">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          <b>Central Park</b><span>New York</span>
-        </div>
-        <div class="stat">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-          <b>3 horas</b><span>100% práctico</span>
-        </div>
-        <div class="stat">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 14.3c2.6.2 4.5 2.3 4.5 5"/></svg>
-          <b>10–12</b><span>Fotógrafos</span>
-        </div>
-        <div class="stat">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-          <b>3 oct 2026</b><span>2:00 PM</span>
+    <div class="hero-overlay">
+      <div class="wrap">
+        <div class="hero-overlay-panel">
+          <div class="eyebrow">Curso de Fotografía</div>
+          <div class="hero-rule"></div>
+          <h1>Retrato<br>Fine Art<em>en Central Park</em></h1>
+          <div class="hero-tag">Mirada Propia</div>
+          <p class="hero-sub">Diriges. Disparas. Aprendes a ver, trabajando con personas normales, no modelos.</p>
+          <div class="hero-stats">
+            <div class="ho-stat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span>3 horas</span>
+            </div>
+            <div class="ho-stat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 14.3c2.6.2 4.5 2.3 4.5 5"/></svg>
+              <span>Personas reales</span>
+            </div>
+            <div class="ho-stat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+              <span>100% práctico</span>
+            </div>
+          </div>
+          <a href="reserva.html" class="btn">Quiero mi lugar</a>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 <div class="bio-strip">
   <div class="wrap">
@@ -78,63 +86,81 @@
 
 
 
-<!-- ============ NO ES UNA CLASE ============ -->
-<section class="section">
+<!-- ============ CÓMO FUNCIONA — SECCIÓN 1: INTRO + FOTO ============ -->
+<section class="section" id="como-funciona">
   <div class="wrap">
-    <div class="split">
-      <div class="ph">
-        <img src="images/_BAF6782.jpg" alt="Retrato Fine Art de niña bajo ramas de otoño">
+    <div class="how-intro-grid">
+      <div class="how-text">
+        <h2>No vienes a mirar.<br><em>Vienes a fotografiar.</em></h2>
+        <div class="how-rule"></div>
+        <p>Tres horas en Central Park trabajando con personas reales.</p>
+        <p><strong>Tú estás detrás de la cámara desde el primer minuto.</strong></p>
+        <p>Yo estoy a tu lado, observando, corrigiendo y ayudándote a tomar decisiones en tiempo real:</p>
+        <div class="how-mini-stats">
+          <div class="mini-stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 3v2.2M12 18.8V21M21 12h-2.2M5.2 12H3M18.4 5.6l-1.5 1.5M7.1 16.9l-1.5 1.5M18.4 18.4l-1.5-1.5M7.1 7.1L5.6 5.6"/></svg>
+            <span>Luz</span>
+          </div>
+          <div class="mini-stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg>
+            <span>Composición</span>
+          </div>
+          <div class="mini-stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14.5 14.3c2.6.2 4.5 2.3 4.5 5"/></svg>
+            <span>Dirección</span>
+          </div>
+          <div class="mini-stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c0-3.6 2.9-6.2 6.5-6.2s6.5 2.6 6.5 6.2"/></svg>
+            <span>Pose</span>
+          </div>
+          <div class="mini-stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <span>Momento</span>
+          </div>
+        </div>
       </div>
-      <div>
-        <div class="kicker">Cómo funciona</div>
-        <h2>No es una clase.<br>Es una sesión de trabajo real.</h2>
-        <p>Llegamos a Central Park y empezamos a fotografiar. No hay diapositivas ni una hora sentada antes de tomar tu primera foto.</p>
-        <p>Trabajas con una familia y niños reales, en un entorno real, con luz natural, movimiento y todas las variables que aparecen en una sesión de verdad — no en un set controlado.</p>
-        <div class="callout">Tú tomas las decisiones. Yo estoy contigo para ayudarte a verlas, cuestionarlas y corregirlas en el momento.</div>
+
+      <div class="how-photo">
+        <div class="ph">
+          <img src="images/_DSC4271-Editar.jpg" alt="Tres niños jugando con hojas de otoño">
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="band">
-  <div class="ph">
-    <img src="images/_DSC4271-Editar.jpg" alt="Tres niños jugando con hojas de otoño">
-  </div>
-</div>
-
-<!-- ============ STEPS (signature element: the park path) ============ -->
-<section class="steps-wrap">
+<!-- ============ CÓMO FUNCIONA — SECCIÓN 2: LOS 5 PASOS ============ -->
+<section class="steps-section">
   <div class="wrap">
     <div class="steps-head">
       <div class="kicker">Durante las 3 horas</div>
       <h2>Un recorrido, no una lista de contenidos</h2>
     </div>
-    <div class="steps">
-      <div class="steps-path"></div>
-      <div class="step">
-        <div class="step-num"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.5"/></svg></div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.5"/></svg></div>
         <h3>Diriges</h3>
-        <p>Decides dónde ubicar a la familia, cómo relacionar a los personajes y cómo construir cada imagen.</p>
+        <p>Tú decides cómo ubicar a las personas, cómo relacionar a los personajes y cómo construir cada imagen.</p>
       </div>
-      <div class="step">
-        <div class="step-num"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 3v2.2M12 18.8V21M21 12h-2.2M5.2 12H3M18.4 5.6l-1.5 1.5M7.1 16.9l-1.5 1.5M18.4 18.4l-1.5-1.5M7.1 7.1L5.6 5.6"/></svg></div>
+      <div class="step-card">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 3v2.2M12 18.8V21M21 12h-2.2M5.2 12H3M18.4 5.6l-1.5 1.5M7.1 16.9l-1.5 1.5M18.4 18.4l-1.5-1.5M7.1 7.1L5.6 5.6"/></svg></div>
         <h3>Lees la luz</h3>
-        <p>Encuentras oportunidades de luz en el entorno y reaccionas cuando las condiciones cambian.</p>
+        <p>Aprendes a encontrar la mejor luz en el entorno y a reaccionar cuando las condiciones cambian.</p>
       </div>
-      <div class="step">
-        <div class="step-num"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg></div>
-        <h3>Construyes</h3>
-        <p>Composición, pose, gesto, movimiento y entorno, como parte de una misma imagen.</p>
+      <div class="step-card">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg></div>
+        <h3>Construyes la imagen</h3>
+        <p>Composición, pose, gesto, conexión, movimiento y entorno. Como parte de una misma imagen.</p>
       </div>
-      <div class="step">
-        <div class="step-num"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3>Revisas</h3>
-        <p>Miramos juntos lo que capturaste y detectamos qué funciona, qué falta y qué podrías cambiar.</p>
+      <div class="step-card">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Aprendes a ver</h3>
+        <p>Revisamos juntos lo que estás fotografiando y detectamos qué funciona y qué falta.</p>
       </div>
-      <div class="step">
-        <div class="step-num"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.3 6.4L3 16M3 21v-5h5"/></svg></div>
+      <div class="step-card">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.3 6.4L3 16M3 21v-5h5"/></svg></div>
         <h3>Vuelves a disparar</h3>
-        <p>Corriges, cambias, pruebas de nuevo — el aprendizaje ocurre en la segunda vuelta.</p>
+        <p>Corriges, cambias, pruebas nuevamente. Porque el aprendizaje ocurre cuando vuelves a hacerlo.</p>
       </div>
     </div>
   </div>
@@ -147,7 +173,7 @@
 </div>
 
 <!-- ============ PARA QUIÉN ============ -->
-<section class="forwho">
+<section class="forwho" id="para-quien">
   <div class="wrap">
     <div class="forwho-grid">
       <div class="fw-col yes">
@@ -178,7 +204,43 @@
   </div>
 </section>
 
-<section class="pricing">
+<!-- ============ TRANSFORMACIÓN ============ -->
+<section class="transform" id="transformacion">
+  <div class="wrap">
+    <div class="kicker">Tu transformación</div>
+    <h2>De disparar sin plan a dirigir con intención</h2>
+    <div class="transform-grid">
+      <div class="transform-col before">
+        <h3>Antes</h3>
+        <ul>
+          <li>Disparas y esperas que salga bien</li>
+          <li>Sigues poses de plantilla</li>
+          <li>Te bloqueas cuando la luz se complica</li>
+          <li>Portafolio con sesiones "seguras"</li>
+        </ul>
+      </div>
+      <div class="transform-arrow">→</div>
+      <div class="transform-col after">
+        <h3>Después</h3>
+        <ul>
+          <li>Diriges con intención, no al azar</li>
+          <li>Construyes la pose según el momento real</li>
+          <li>Lees la luz y la usas a tu favor</li>
+          <li>Portafolio con imágenes Fine Art reales</li>
+        </ul>
+      </div>
+    </div>
+    <div class="transform-highlight">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="15" height="15" rx="1.5"/><path d="M7 19h13a1 1 0 0 0 1-1V6"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M4 16l3.5-3.5a1 1 0 0 1 1.4 0L12 15.5"/></svg>
+      <div>
+        <b>Te vas con fotos reales para tu portafolio</b>
+        <span>Editadas con criterio Fine Art, listas para mostrar a tus futuros clientes — no son fotos de práctica.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="precio">
   <div class="wrap">
     <div class="kicker">Inversión</div>
     <h2 style="font-family:var(--serif); font-weight:600; font-size:clamp(26px,3vw,34px); margin-bottom:40px;">Cupos limitados. 10 a 12 personas.</h2>
@@ -195,7 +257,7 @@
             <span class="label">Precio regular</span>
           </div>
         </div>
-        <p class="price-note">Incluye el taller de 3 horas en Central Park y el material digital de la sesión. Taller en trámite de permiso oficial con Central Park Conservancy — no es un shoot improvisado.</p>
+        <p class="price-note">Incluye el taller de 3 horas en Central Park y el material digital de la sesión.</p>
         <a href="reserva.html" class="btn" style="background:var(--ink); border-color:var(--ink);">Quiero mi lugar</a>
       </div>
       <div class="price-card dark">
@@ -210,18 +272,23 @@
 </section>
 
 <!-- ============ BIO ============ -->
-<section class="bio-section">
+<section class="bio-section" id="sobre-mi">
   <div class="wrap">
-    <div class="bio-section-inner">
-      <div class="kicker">Sobre mí</div>
-      <h2>Soy Bernardita Aguirre</h2>
-      <p>Me dedico a la fotografía Fine Art hace <strong>11 años</strong>, enseñando a fotógrafos y haciendo sesiones a familias.</p>
-      <p>Soy embajadora de Sony, Sony Alpha Partner, hace <strong>5 años</strong>.</p>
-      <p>Ya son más de <strong>1000 alumnos</strong> que me han elegido para formarse, y <strong>1200 familias</strong> retratadas que han confiado en mí para crear sus recuerdos. ¡Me encanta enseñar!</p>
-      <p>Soy profesora en Sony Academy, en Masterclass Photographers y en mi propia escuela, y ayudo a fotógrafos en la búsqueda de su sello único, porque todo lo que enseño es lo que yo hago a diario en mis fotografías y en mi propio negocio.</p>
-      <p>He sido conferencista en <strong>7 destacados congresos de fotografía</strong> y también he impartido workshops presenciales en Chile, Perú, Argentina, USA y México. He tenido el honor de ser jurado en 4 concursos internacionales y he sido publicada en revistas, podcasts y entrevistas de TV.</p>
-      <p>He recibido varios reconocimientos en concursos internacionales: el 2019 salí dentro de los top 35 en "35 Awards", este año me dieron 3 Bronze Awards en Portrait Masters, y me acaban de dar un premio por excelente contenido en Pinterest.</p>
-      <div class="bio-quote">¡Estoy muy feliz de conocerte!</div>
+    <div class="kicker">Sobre mí</div>
+    <div class="bio-split">
+      <div class="ph">
+        <img src="images/bernardita-retrato.jpg" alt="Bernardita Aguirre">
+      </div>
+      <div class="bio-text-col">
+        <h2>Soy Bernardita Aguirre</h2>
+        <p>Me dedico a la fotografía Fine Art hace <strong>11 años</strong>, enseñando a fotógrafos y haciendo sesiones a familias.</p>
+        <p>Soy embajadora de Sony, Sony Alpha Partner, hace <strong>5 años</strong>.</p>
+        <p>Ya son más de <strong>1000 alumnos</strong> que me han elegido para formarse, y <strong>1200 familias</strong> retratadas que han confiado en mí para crear sus recuerdos. ¡Me encanta enseñar!</p>
+        <p>Soy profesora en Sony Academy, en Masterclass Photographers y en mi propia escuela, y ayudo a fotógrafos en la búsqueda de su sello único, porque todo lo que enseño es lo que yo hago a diario en mis fotografías y en mi propio negocio.</p>
+        <p>He sido conferencista en <strong>7 destacados congresos de fotografía</strong> y también he impartido workshops presenciales en Chile, Perú, Argentina, USA y México. He tenido el honor de ser jurado en 4 concursos internacionales y he sido publicada en revistas, podcasts y entrevistas de TV.</p>
+        <p>He recibido varios reconocimientos en concursos internacionales: el 2019 salí dentro de los top 35 en "35 Awards", este año me dieron 3 Bronze Awards en Portrait Masters, y me acaban de dar un premio por excelente contenido en Pinterest.</p>
+        <div class="bio-quote">¡Estoy muy feliz de conocerte!</div>
+      </div>
     </div>
   </div>
 </section>
@@ -235,7 +302,7 @@
 <!-- ============ PRICING ============ -->
 
 <!-- ============ TESTIMONIALS (placeholder — sin testimonios reales aún) ============ -->
-<section class="testimonials">
+<section class="testimonials" id="testimonios">
   <div class="wrap">
     <div class="testimonials-head">
       <div class="kicker">Testimonios</div>
@@ -272,7 +339,7 @@
 <section class="closing" id="reserva">
   <div class="closing-inner wrap">
     <div class="eyebrow">Reserva tu cupo</div>
-    <h2>10–12 fotógrafos. Una familia real.<br>Un escenario real. Una sesión real.</h2>
+    <h2>10–12 fotógrafos. Personas reales.<br>Un escenario real. Una sesión real.</h2>
     <div class="closing-script">Y tú, detrás de la cámara.</div>
     <a href="reserva.html" class="btn">Quiero mi lugar</a>
     <div class="closing-facts">
@@ -293,6 +360,34 @@
 <footer>
   Mirada Propia™ — Bernardita Aguirre · Embajadora Sony Alpha
 </footer>
+
+<a href="https://wa.me/56992388751?text=Hola%20Bernardita%2C%20tengo%20una%20consulta%20sobre%20el%20taller%20en%20Central%20Park" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.35.66 4.55 1.8 6.43L4 29l7.72-1.76a12.9 12.9 0 0 0 4.3.74h.01c6.62 0 12.02-5.4 12.02-12.02C28.05 8.4 22.64 3 16.02 3zm0 21.9h-.01a10.1 10.1 0 0 1-5.14-1.41l-.37-.22-3.83.87.87-3.74-.24-.38a9.98 9.98 0 0 1-1.55-5.3C5.75 9.42 10.34 4.9 16.02 4.9c2.68 0 5.2 1.05 7.09 2.94a9.9 9.9 0 0 1 2.93 7.08c0 5.6-4.6 10.98-10.02 10.98zm5.5-7.65c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+</a>
+
+<script>
+  const nav = document.querySelector(".site-nav");
+  const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  function onScroll() {
+    nav.classList.toggle("scrolled", window.scrollY > 40);
+  }
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>
 
 </body>
 </html>
