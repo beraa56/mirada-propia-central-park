@@ -907,8 +907,7 @@ footer{
 .whatsapp-float svg{width:28px; height:28px; fill:#fff;}
 
 @media (max-width:860px){
-  .hero-band .ph{height:auto; min-height:0; max-height:none;}
-  .hero-band .ph img{position:static; height:auto; object-fit:initial;}
+  .hero-band .ph{height:auto; min-height:640px; max-height:none;}
   .hero-overlay{position:absolute; align-items:flex-end; padding:0 0 32px;}
   .hero-overlay .wrap{padding-left:22px; padding-right:22px;}
   .hero-overlay-panel{max-width:100%;}
