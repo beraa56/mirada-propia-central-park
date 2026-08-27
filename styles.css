@@ -704,10 +704,14 @@ footer{
   gap:16px;
 }
 .page-header .brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
   font-family:var(--serif);
   font-weight:600;
   font-size:17px;
 }
+.page-logo-mark{height:26px; width:auto; display:block;}
 .page-header .back{
   font-size:12.5px;
   letter-spacing:.05em;
