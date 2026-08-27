@@ -51,6 +51,38 @@ Ya cargados y funcionando:
 4. El link queda tipo `https://<usuario>.github.io/<repositorio>/` — ese es el que se
    manda a los clientes.
 
+**Dominio propio:** el sitio ya está conectado a `cursoretratofineart.bernarditaaguirre.com`
+(subdominio, no toca el sitio principal en `bernarditaaguirre.com`). El archivo `CNAME` en la
+raíz del repo apunta ahí, con un registro CNAME en el DNS de Squarespace apuntando a
+`beraa56.github.io`. HTTPS obligatorio ya está activado.
+
+## Seguridad
+
+Se hizo una revisión completa del código (HTML/CSS/JS e historial de git): es un sitio
+100% estático, sin servidor ni formularios que envíen datos a ningún lado, sin credenciales
+ni secretos en el código. Los pagos ocurren siempre **fuera** del sitio, directo en la
+infraestructura de Stripe o PayPal — el número de tarjeta nunca pasa por acá. Eso ya es
+seguro por diseño y no requiere nada extra.
+
+El riesgo real no está en el código, sino en quién puede *editar* el sitio o el dominio.
+Para que la plata de tus clientes esté protegida:
+
+- **Activa verificación en dos pasos (2FA)** en estas cuentas — es lo más importante de
+  todo, porque si alguien entra a una de ellas podría cambiar los links de pago por los
+  suyos sin que se note nada raro en el diseño de la página:
+  - GitHub (cuenta `beraa56`)
+  - Stripe
+  - PayPal
+  - Squarespace (controla el DNS de tu dominio)
+- **Activa el "Bloqueo de dominio" (Domain Lock)** en Squarespace → Dominios →
+  `bernarditaaguirre.com` — vi que estaba desactivado. Evita que alguien transfiera tu
+  dominio a otro proveedor sin tu autorización.
+- **Zelle — verifica tú misma cada pago.** Zelle no tiene protección al comprador ni al
+  vendedor y las transferencias son irreversibles. El botón "Ya pagué, avísale a
+  Bernardita" solo manda un correo — cualquiera podría escribirlo sin haber pagado de
+  verdad. Antes de confirmar una reserva pagada por Zelle, entra a tu banco y confirma que
+  el dinero realmente llegó.
+
 ## Fuentes usadas
 
 - Playfair Display (encabezados, y su cursiva/itálica para los acentos tipo script)
