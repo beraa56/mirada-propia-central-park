@@ -741,19 +741,6 @@ footer{
   color:rgba(35,35,35,.6);
 }
 
-.test-payment-note{
-  max-width:640px;
-  margin:28px auto 0;
-  padding:14px 20px;
-  background:#fff7e6;
-  border:1px dashed #d1a13a;
-  border-radius:4px;
-  font-size:13px;
-  color:#5a4a1f;
-  text-align:center;
-}
-.test-payment-note a{color:var(--terracotta); font-weight:600; text-decoration:underline;}
-
 .checkout-grid{
   display:grid;
   grid-template-columns:1fr 1.2fr;
