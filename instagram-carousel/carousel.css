@@ -11,35 +11,38 @@ body{width:1080px; height:1350px; overflow:hidden;}
   background:var(--cream);
 }
 
-/* ---- foto de fondo ---- */
+/* ---- slide dividido: foto limpia arriba + banda de texto abajo ---- */
+.slide-split{display:flex; flex-direction:column; height:100%;}
+.slide-photo-block{
+  width:100%;
+  height:820px;
+  flex:none;
+  overflow:hidden;
+}
+.slide-photo-block img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* ---- foto de fondo a página completa (slide 6) ---- */
 .slide-photo{
   position:absolute; inset:0;
   width:100%; height:100%;
   object-fit:cover;
   display:block;
 }
-.slide-scrim{
-  position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(20,12,8,0) 32%, rgba(20,12,8,.58) 62%, rgba(18,10,7,.93) 100%);
-}
-.slide-scrim-full{
-  position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(20,12,8,.35) 0%, rgba(20,12,8,.55) 55%, rgba(18,10,7,.9) 100%);
-}
 
-/* ---- ícono de marca (arriba a la izquierda, todas las slides) ---- */
-.slide-brand{
-  position:absolute; top:56px; left:56px;
-  height:52px;
-  z-index:5;
-}
-
-/* ---- contenido de texto sobre foto, anclado abajo ---- */
+/* ---- banda de texto (fondo sólido, sin overlay sobre la foto) ---- */
 .slide-content{
-  position:absolute; left:0; right:0; bottom:0;
-  padding:0 70px 84px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:56px 70px;
   color:var(--cream);
-  z-index:2;
+  background:#1c130d;
+  position:relative;
 }
 .slide-kicker{
   font-family:var(--sans);
@@ -186,4 +189,4 @@ body{width:1080px; height:1350px; overflow:hidden;}
   letter-spacing:.04em; text-transform:uppercase;
   padding:20px 38px; border-radius:40px;
 }
-.cta-pill svg{width:30px; height:30px; fill:#fff;}
+.cta-pill svg{width:28px; height:28px; stroke:#fff; flex:none;}
