@@ -917,6 +917,43 @@ footer{
 .whatsapp-float:hover{transform:scale(1.06);}
 .whatsapp-float svg{width:28px; height:28px; fill:#fff;}
 
+.whatsapp-bubble{
+  position:fixed;
+  bottom:92px;
+  right:24px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:var(--cream);
+  border-radius:30px;
+  padding:8px 18px 8px 8px;
+  box-shadow:0 8px 20px rgba(35,35,35,.2);
+  z-index:200;
+  transition:transform .2s ease;
+  white-space:nowrap;
+}
+.whatsapp-bubble:hover{transform:translateY(-2px);}
+.whatsapp-bubble-photo{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  object-fit:cover;
+  flex:none;
+  border:2px solid #25D366;
+}
+.whatsapp-bubble span{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink);
+}
+
+@media (max-width:860px){
+  .whatsapp-bubble span{font-size:12px;}
+  .whatsapp-bubble{padding:6px 16px 6px 6px; bottom:88px;}
+  .whatsapp-bubble-photo{width:34px; height:34px;}
+}
+
 @media (max-width:860px){
   .hero-band .ph{height:auto; min-height:440px; max-height:none;}
   .hero-overlay{
